@@ -1,0 +1,226 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.main_table{
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #FFFFFF;
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+
+.banner{
+    height: 200px;
+    width: 700px;
+    background-image: url('../images/banner.jpg');
+    background-repeat: no-repeat;
+}
+
+.search-and-connect {
+    height: 150px;
+    width: 300px;
+}
+
+.login, .auth, .user_connected, .logout {
+    float: left;
+    padding: 10px;
+    margin-left: 20px;
+    margin-top: 20px;
+    font-family: sans-serif;
+    font-size: 18px;
+    color: #32778C;
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+
+.search {
+    color: grey;
+    size: 20px;
+    float: left;
+    margin: 25px;
+    padding: 5px;
+    border-radius: 8px;
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+
+.searchButton {
+    /* content: src='images/search.png' */
+    width: 30px;
+    float: left;
+    margin-top: 25px;
+}
+
+.navigation {
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: 2px solid #009999;
+}
+
+.clearfix {
+    list-style-type: none;
+    list-style: none;
+    padding-top: 15px;
+    padding-bottom: 3px;
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+
+.clearfix li{
+    display: inline;
+    position: relative;
+}
+
+.clearfix a{
+    font-family: 'arial';
+    color: #32788c;
+    text-decoration: none;
+    font-size: 23px;
+    font-weight: bold;
+    padding: 10px;
+    padding-left:22px;
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+
+.clearfix a:hover{
+    color: #009999;
+    text-decoration: underline;
+}
+
+.clearfix:after {
+    display:block;
+    clear:both;
+}
+
+.arrow {
+    font-size:15px;
+    line-height:0%;
+}
+
+.clearfix li:hover .sub-menu {
+    z-index:1;
+    display: block;
+}
+
+.sub-menu {
+    width:100%;
+    position:absolute;
+    z-index:-1;
+    display:none;
+    left:0px;
+    background:#f8f8f8;
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+
+.sub-menu li {
+    display:block;
+    padding-left: 20px;
+}
+
+.sub-menu li a {
+    /* top right bottom left */
+    padding: 0px 10px 0px 30px;
+    display:block;
+    font-size:16px;
+}
+
+.sub-menu li a:hover {
+    background:#f8f8f8;
+}
+
+.content {
+    width: 990px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 0px;
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+
+#autoscrolId {
+	position:fixed;
+	margin-left: 69%;
+	opacity:0.5;
+}
+
+#artisti {
+	padding:1px;
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+
+#categorii {
+    /* top right bottom left */
+    padding: 3px 10px 0px 10px;
+    display:block;
+    font-size:19px;
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+
+.comment {
+    width: 770px;
+    margin-left: 100px;
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+
+body {
+	overflow-x: hidden;
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+
+#autoscroll {
+  color: white;
+  background-color: #3B8DA5;
+  margin-left: 21px;
+}
+
+#autoscroll_1 {
+  color: white;
+  background-color: #52A8C1;
+}
+
+#autoscrolId:hover{
+  opacity: 0.8;
+}
+
+#autoscroll_2 {
+  color: white;
+  background-color: #45A2BD;
+	margin-left: -4px;
+}
+
+#autoscroll_3 {
+  background-color: #3B8DA5;
+  color: white;
+  margin-left: -5px;
+}
+
+#autoscroll_4 {
+  background-color: #32788C;
+  color: white;
+  margin-left: -5px;
+}
+#autoscroll_5 {
+  color: white;
+  background-color: #296373;
+  margin-left: -4px;
+}
+
+#mainDivHome {
+  background-image: url('../images/guitarBackgroud3.jpg');
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+
+.search:focus {
+    outline-width: 0;
+}
+
+#up:focus {
+    outline: 0 !important;
+}
+
+#down:focus {
+    outline: 0 !important;
+}
+
+.autoScrollClass:focus {
+    outline: 0 !important;
+}
