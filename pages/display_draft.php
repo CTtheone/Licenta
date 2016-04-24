@@ -46,10 +46,10 @@
 							} else {
 								to_update += word;
 							}
-							//to_update += " ";
+							to_update += " ";
 						}
 					}
-					//to_update += "\r\n";
+					to_update += "\r\n";
 			}
 			to_update += "</pre>";
 			document.write(to_update);
@@ -145,10 +145,10 @@
 						} else {
 							to_update += word;
 						}
-						//to_update += " ";
+						to_update += " ";
 					}
 				}
-				//to_update += "\r\n";
+				to_update += "\r\n";
 		}
 		to_update += "</pre>";
 		document.getElementById('text').innerHTML = to_update;

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Gazda: localhost
--- Timp de generare: 24 Apr 2016 la 00:55
+-- Timp de generare: 24 Apr 2016 la 15:39
 -- Versiune server: 5.5.49-0ubuntu0.14.04.1
 -- Versiune PHP: 5.5.9-1ubuntu4.16
 
@@ -59,7 +59,18 @@ CREATE TABLE IF NOT EXISTS `drafts` (
   `cale` varchar(200) NOT NULL,
   `uploader` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+
+--
+-- Salvarea datelor din tabel `drafts`
+--
+
+INSERT INTO `drafts` (`id`, `artist`, `titlu`, `cale`, `uploader`) VALUES
+(1, 'CÄƒtÄƒlina Beta', 'GÃ¢ndacul', 'drafts/cosmin_CÄƒtÄƒlina Beta_GÃ¢ndacul.txt', 'cosmin'),
+(2, 'lkj', 'lkj', 'drafts/cosmin_lkj_lkj.txt', 'cosmin'),
+(3, 'catalina beta', 'gandacul', 'drafts/cosmin_catalina beta_gandacul.txt', 'cosmin'),
+(4, 'Emilian Onciu', 'Ursoaica', 'drafts/cosmin_Emilian Onciu_Ursoaica.txt', 'cosmin'),
+(5, 'Emilian Onciu', 'Ursoaica', 'drafts/cosmin_Emilian Onciu_Ursoaica.txt', 'cosmin');
 
 -- --------------------------------------------------------
 
@@ -79,7 +90,7 @@ CREATE TABLE IF NOT EXISTS `melodii` (
   `minus` int(11) NOT NULL,
   `comments_path` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=35 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=43 ;
 
 --
 -- Salvarea datelor din tabel `melodii`
@@ -92,7 +103,9 @@ INSERT INTO `melodii` (`id`, `artist`, `titlu`, `cale_tmp`, `cale`, `categorie`,
 (31, 'Tudor Gheorghe', 'Vin colindatorii', NULL, 'tab_uploads/cosmin_Tudor Gheorghe_Vin colindatorii.txt', 'Colinde', 'cosmin', 3, 0, 'comments/Tudor Gheorghe_Vin colindatorii_comm.txt'),
 (32, 'Tudor Gheorghe', 'Valsul rozelor', NULL, 'tab_uploads/cosmin_Tudor Gheorghe_Valsul rozelor.txt', 'Folclor', 'cosmin', 1, 0, 'comments/Tudor Gheorghe_Valsul rozelor_comm.txt'),
 (33, 'Bosquito', 'Bosquito', NULL, 'tab_uploads/simona_Bosquito_Bosquito.txt', 'Latino', 'simona', 1, 0, 'comments/Bosquito_Bosquito_comm.txt'),
-(34, 'Vama Veche', 'Epilog', NULL, 'tab_uploads/simona_Vama Veche_Epilog.txt', 'Dragoste', 'simona', 1, 1, 'comments/Vama Veche_Epilog_comm.txt');
+(34, 'Vama Veche', 'Epilog', NULL, 'tab_uploads/simona_Vama Veche_Epilog.txt', 'Dragoste', 'simona', 1, 1, 'comments/Vama Veche_Epilog_comm.txt'),
+(40, 'Catalina Beta', 'Gandacul', NULL, 'tab_uploads/cosmin_Catalina Beta_Gandacul.txt', 'Folk', 'cosmin', 0, 0, 'comments/Catalina Beta_Gandacul_comm.txt'),
+(42, 'Emilian Onciu', 'Ursoaica', 'tmp_upload/cosmin_Emilian Onciu_Ursoaica.txt', NULL, 'Folk', 'cosmin', 0, 0, 'comments/Emilian Onciu_Ursoaica_comm.txt');
 
 -- --------------------------------------------------------
 
@@ -143,7 +156,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `user` (`username`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
 
 --
 -- Salvarea datelor din tabel `users`
@@ -152,7 +165,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 INSERT INTO `users` (`id`, `username`, `password`, `email`, `admin`) VALUES
 (12, 'cosmin', 'c296255d490b1a4889b376e08e37e51f', 'cosmintom@gmail.com', 1),
 (13, 'madi', 'f05eabc961bc296c088b3510d6429d02', 'madalina.hristache@gmail.com', NULL),
-(14, 'simona', '3506e1dff0db4e4d78412e2feb7c0a95', 'sim@gmail.com', NULL);
+(14, 'simona', '3506e1dff0db4e4d78412e2feb7c0a95', 'sim@gmail.com', NULL),
+(19, 'cristi', '9e95bf56a1e3dcb44a34ae7fc9034091', 'cosmin.tomulescu@cs.pub.ro', NULL);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -32,29 +32,17 @@
 </form>
 
 <?php
-
-// echo shell_exec("ls") . "<br>";
-//
-// echo shell_exec("curl");
-//
-// echo shell_exec("./script.sh");
-
 if(isset($_POST['contact'])){
         $name = $_POST['nume'];
         $from = $_POST['email'];
         $comment = $_POST['comment'];
 
-        $txt = 'Comentariu trimis de: ' . $name . "\n" . $comment;
+        $txt = 'Comentariu trimis de: ' . $name . "\n\n" . $comment;
 
-        $command = "curl -s --user 'api:key-3ax6xnjp29jd6fds4gc373sgvjxteol0'     https://api.mailgun.net/v3/samples.mailgun.org/messages " .
-        " -F from=" . 'cosmintom@gmail.com' . " -F to=" . 'cosmintom@yahoo.com' . " -F subject=" . "Subiect" . " -F text=" . "Teeext";
-        $output = shell_exec($command);
-        echo $output;
-        //$r = sendEmail('cosmintom@yahoo.com', $from, 'Tabulaturi - mesaj utilizator', $txt);
-        //1
-        // if($r)
-        //     die ("<div class='alert alert-success' style='width:320px;margin-left:340px;font-size:18px'>Mesajul a fost trimis. Vă mulțumim.</div>");
-        // else
-        //     die ("<div class='alert alert-warning' style='width:501px;margin-left:250px;font-size:18px'>Mesajul nu a putut fi trimis. Vă rugăm încercați mai târziu.</div>");
+        $r = sendEmail('cosmintom@yahoo.com', $from, 'Tabulaturi - mesaj utilizator', $txt);
+        if($r)
+            die ("<div class='alert alert-success' style='width:320px;margin-left:340px;font-size:18px'>Mesajul a fost trimis. Vă mulțumim.</div>");
+        else
+            die ("<div class='alert alert-warning' style='width:501px;margin-left:250px;font-size:18px'>Mesajul nu a putut fi trimis. Vă rugăm încercați mai târziu.</div>");
     }
 ?>

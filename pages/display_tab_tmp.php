@@ -2,7 +2,7 @@
 
 <?php
     $username = $_SESSION['user'][1];
-    if (is_user_admin($username)) {
+    if (!($username == '') && is_user_admin($username)) {
         if (isset($_GET['tmp-song'])){
             $id_song = $_GET['tmp-song'];
             $query = get_tmp_song_by_id($id_song);
@@ -48,10 +48,10 @@
 							} else {
 								to_update += word;
 							}
-							//to_update += " ";
+							to_update += " ";
 						}
 					}
-					//to_update += "\r\n";
+					to_update += "\r\n";
 			}
 			to_update += "</pre>";
 			document.write(to_update);
@@ -75,26 +75,50 @@
                 }
             }
         }
-}
-print "<form class=\"form-horizontal\" role=\"form\" id=\"contact-form\" action=\"index.php?user_uploads=1&username=\"" . $username . "method=\"post\">";
+
+print "<form class=\"form-horizontal\" role=\"form\" id=\"contact-form\" action=\"index.php?user_uploads=1&username=" . $username . "\">";
 ?>
-    <div class="form-group">
+    <div class="form-group" style="margin-bottom:0px">
         <div class="col-sm-offset-3 col-sm-5" style="padding-left:50px">
             <textarea class="form-control" rows="3" id="message" name="text" placeholder="Mesajul catre contribuitor..."></textarea>
         </div>
         <br><br><br><br>
         <div class="form-group">
           <div class="col-sm-offset-4 col-sm-2" style="padding-left:35px">
-            <button id="accept" type="submit" class="btn btn-primary" name="accept">Accept</button>
+            <button id="accept" type="submit" class="btn btn-primary tmp_button" name="accept" value="accept" onclick="return false;">Accept</button>
           </div>
           <div class="col-sm-4" style="padding-left:35px">
-            <button id="decline" type="submit" class="btn btn-danger" name="decline">Refuz</button>
+            <button id="decline" type="submit" class="btn btn-danger  tmp_button" name="decline" value="decline" onclick="return false;">Refuz</button>
           </div>
         </div>
     </div>
 </form>
 
+<div id="succes_message" class='alert alert-info' style='font-size:19px;width:300px;margin-left:320px;margin-top:0px;display:none;'>Operația a fost realizată cu succes!</div>
+
+<?php
+} else {
+    print "<div class='alert alert-info' style='font-size:19px;width:420px;margin-left:260px;margin-top:0px'>Pentru a putea valida acorduri trebuie să fii admin.</div>";
+}
+?>
+
 <script>
+    $(document).ready(function(){
+        $('.tmp_button').click(function(){
+            var clickBtnValue = $(this).val();
+            var ajaxurl = 'pages/accept_decline_tmp_tab.php';
+            var cale_tmp = <?php echo "\"" . $query['cale_tmp'] . "\"";?>;
+            var cale = "tab_uploads" + cale_tmp.substring("tmp_upload".length);
+            data =  {'action': clickBtnValue, 'id_song' : <?php echo $id_song;?>, 'cale_tmp' : cale_tmp, 'cale' : cale};
+            console.log(data);
+            $.post(ajaxurl, data, function (response) {
+                console.log("i'm back");
+                $("#succes_message").show();
+                // Response div goes here.
+            });
+        });
+    });
+
 	var up = {"C" : "C#", "C#" : "D", "Db" : "D", "D" : "D#", "D#" : "E", "Eb" : "E", "E" : "F", "F" : "F#", "F#" : "G", "Gb" : "G", "G" : "G#", "G#" : "A", "Ab" : "A", "A" : "A#", "A#" : "B", "Bb" : "B", "B" : "C"};
 	var down = {"C" : "B", "B" : "A#", "A#" : "A", "Bb" : "A", "A" : "G#", "G#" : "G", "Ab" : "G", "G" : "F#", "F#" : "F", "Gb" : "F", "F" : "E", "E" : "D#", "D#" : "D", "Eb" : "D", "D" : "C#", "C#" : "C", "Db" : "C"};
 	count = 0;
@@ -164,10 +188,10 @@ print "<form class=\"form-horizontal\" role=\"form\" id=\"contact-form\" action=
 						} else {
 							to_update += word;
 						}
-						//to_update += " ";
+						to_update += " ";
 					}
 				}
-				//to_update += "\r\n";
+				to_update += "\r\n";
 		}
 		to_update += "</pre>";
 		document.getElementById('text').innerHTML = to_update;

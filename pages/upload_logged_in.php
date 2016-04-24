@@ -131,8 +131,11 @@
 		} else {
 			$categorie = $_POST['categorie'];
 		}
-        $text = $_POST['text'];
 		$username = $_SESSION['user'][1];
+        $text = $_POST['text'];
+
+		// Translate to unix encoding
+		$text = str_replace("\r\n", "\n", $text);
 
 		if (isset($_POST['checkbox_comunitate'])) {
 			$box1 = true;

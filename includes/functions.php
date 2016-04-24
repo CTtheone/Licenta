@@ -36,33 +36,35 @@ function logIn($username, $password) {
 }
 
 function sendEmail($to, $from, $subject, $txt) {
-    //
-    // $post = [
-    //         'to'    => $to,
-    //         'from'  => $from,
-    //         'text'  => $txt,
-    //         'subject' => $subject,
-    // ];
-    //
-    // $ch = curl_init('https://api.mailgun.net/v3/samples.mailgun.org/messages');
-    // curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-    // curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    // curl_setopt($ch, CURLOPT_USERPWD, 'api' . ":" . 'key-3ax6xnjp29jd6fds4gc373sgvjxteol0');
-    //
-    // // execute!
-    // $response = curl_exec($ch);
-    //
-    // // close the connection, release resources used
-    // curl_close($ch);
+
+    $post = [
+            'to'    => $to,
+            'from'  => $from,
+            'text'  => $txt,
+            'subject' => $subject,
+    ];
+
+    $ch = curl_init('https://api.mailgun.net/v3/samples.mailgun.org/messages');
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_USERPWD, 'api' . ":" . 'key-3ax6xnjp29jd6fds4gc373sgvjxteol0');
+
+    // execute!
+    $response = curl_exec($ch);
+
+    // close the connection, release resources used
+    curl_close($ch);
+
+    if (strpos($response, 'Thank you') !== false) {
+        return true;
+    }
+    return false;
+    // $command = "curl -s --user 'api:key-3ax6xnjp29jd6fds4gc373sgvjxteol0'     https://api.mailgun.net/v3/samples.mailgun.org/messages " .
+    // " -F from=" . $from . " -F to=" . $to . " -F subject=" . $subject . " -F text=" . $txt;
+    // $output = shell_exec($command);
     // if (strcmp($response, 'Forbidden') == 0)
     //         return false;
     // return true;
-    $command = "curl -s --user 'api:key-3ax6xnjp29jd6fds4gc373sgvjxteol0'     https://api.mailgun.net/v3/samples.mailgun.org/messages " .
-    " -F from=" . $from . " -F to=" . $to . " -F subject=" . $subject . " -F text=" . $txt;
-    $output = shell_exec($command);
-    if (strcmp($response, 'Forbidden') == 0)
-            return false;
-    return true;
 }
 
 function requestChords($artist, $titlu) {

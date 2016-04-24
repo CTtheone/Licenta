@@ -16,7 +16,9 @@
 
 	if (count($all_drafts) != 0) {
 ?>
-		<h4 style="font-weight:bold">Tabulaturi draft</h4>
+        <div class="row col-sm-8">
+		  <h4 style="font-weight:bold">Tabulaturi draft</h4>
+        </div>
 		<div class="row col-sm-8">
 			<table id="drafts_table" class="table table-striped">
 		        <thead>
@@ -46,12 +48,14 @@
 	$all_songs = get_songs_by_uploader($username);
 
 	if (count($all_songs) == 0) {
+	// <p id="error_tab" style="display: block">Ne pare rau. Userul selectat nu are contributii.</p>
 ?>
-	<p id="error_tab" style="display: block">Ne pare rau. Userul selectat nu are contributii.</p>
 <?php
 	} else {
 ?>
-	<h4 style="font-weight:bold">Tabulaturi încărcate</h4>
+    <div class="row col-sm-8">
+        <h4 style="font-weight:bold">Tabulaturi încărcate</h4>
+    </div>
 	<div class="row col-sm-12">
 	<table id="tabs" class="table table-striped">
 		<thead>
@@ -84,7 +88,9 @@
 		$all_tmp_songs = get_all_tmp_songs();
 		if (count($all_tmp_songs) != 0) {
 ?>
-		<h4 style="font-weight:bold">Tabulaturi în așteptare</h4>
+        <div class="row col-sm-8">
+            <h4 style="font-weight:bold">Tabulaturi în așteptare</h4>
+        </div>
 		<div class="row col-sm-12">
 		<table id="tabs" class="table table-striped">
 	        <thead>

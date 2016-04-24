@@ -10,22 +10,22 @@
       <input type="text" class="form-control" placeholder="Nume utilizator" name="username" required>
     </div>
   </div>
-  
+
   <div class="form-group">
     <label class="control-label col-sm-4" for="artist">Email:</label>
     <div class="col-sm-3">
       <input type="email" class="form-control" placeholder="Email" name="email" required>
     </div>
   </div>
-  
+
   <div class="form-group">
     <label class="control-label col-sm-4" for="titlu">Parolă:</label>
     <div class="col-sm-3">
       <input type="password" class="form-control" id="titlu" placeholder="Parolă" name="password" required>
     </div>
   </div>
-  
-  <div class="form-group"> 
+
+  <div class="form-group">
     <div class="col-sm-offset-4 col-sm-4">
       <button type="submit" class="btn btn-default" name="auth">Înregistrare</button>
     </div>
@@ -42,5 +42,12 @@
         $r = signUp($username, $parola, $email);
         if(!$r)
             print "<div class='alert alert-info' style='font-size:19px;width:220px;margin-left:335px'>Acest user există deja!</div>";
+        else {
+            print "<div class='alert alert-info' style='font-size:19px;width:260px;margin-left:335px'>Contul a fost creat cu succes!</div>";
+
+            $txt = "Bună ziua,\n\n Contul pe site-ul de tabulaturi a fost creat cu succes!\n\nMulțumim pentru alegere!";
+
+            $r = sendEmail($email, 'Tabulaturi <cosmintom@yahoo.com>', 'Tabulaturi - Creare cont nou', $txt);
+        }
     }
 ?>
