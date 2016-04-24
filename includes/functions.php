@@ -74,8 +74,14 @@ function requestChords($artist, $titlu) {
 }
 
 function uploadFile($username, $artist, $titlu, $categorie, $text) {
-    $filename = "tmp_upload/" . $username . "_" . $artist . "_" . $titlu . ".txt";
-    $comments = "comments/" . $artist . "_" . $titlu . "_comm.txt";
+    mysql_query("SELECT MAX(`id`) FROM `melodii`");
+    $res = mysql_query("SELECT MAX(`id`) FROM `melodii`");
+    $last_id =  mysql_fetch_array($res)[0];
+    $last_id = $last_id + 1;
+
+    $filename = "tmp_upload/" . $username . "_" . $artist . "_" . $titlu . $last_id . ".txt";
+    $comments = "comments/" . $artist . "_" . $titlu . $last_id . "_comm.txt";
+
 	connectDB();
 	mysql_query("INSERT INTO `melodii` (`id`, `artist`, `titlu`, `cale_tmp`, `cale`, `categorie`, `uploader`, `plus`, `minus`,`comments_path`) VALUES (NULL, '$artist', '$titlu', '$filename', NULL, '$categorie', '$username', 0, 0, '$comments');");
     $f1 = fopen($filename, "w");
@@ -254,7 +260,14 @@ function get_email_of_user($username) {
 }
 
 function upload_draft($username, $artist, $titlu, $text) {
-    $filename = "drafts/" . $username . "_" . $artist . "_" . $titlu . ".txt";
+    // The path of the new draft will have as ending the max(id) + 1 of the entries in the drafts table
+    mysql_query("SELECT MAX(`id`) FROM `drafts`");
+    $res = mysql_query("SELECT MAX(`id`) FROM `drafts`");
+    $last_id =  mysql_fetch_array($res)[0];
+    $last_id = $last_id + 1;
+
+    $filename = "drafts/" . $username . "_" . $artist . "_" . $titlu . $last_id . ".txt";
+
 	connectDB();
 	mysql_query("INSERT INTO `drafts` (`id`, `artist`, `titlu`, `cale`, `uploader`) VALUES (NULL, '$artist', '$titlu', '$filename', '$username');");
     $f1 = fopen($filename, "w");

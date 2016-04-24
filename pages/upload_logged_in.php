@@ -138,26 +138,19 @@
 		$text = str_replace("\r\n", "\n", $text);
 
 		if (isset($_POST['checkbox_comunitate'])) {
-			$box1 = true;
-		}
-		if (isset($_POST['checkbox_draft'])) {
-			$box2 = true;
-		}
-
-		if (isset($_POST['checkbox_comunitate'])) {
 			$r_upload_file = uploadFile($username, $artist, $titlu, $categorie, $text);
 	        if($r_upload_file)
-	        	print ("<div class='alert alert-success' style='font-size:19px;width:726px;margin-left:145px'>Fișierul a fost încărcat. Urmează să fie aprobat de un administrator. Vă mulțumim.</div>");
+				print ("<div class='alert alert-success' style='font-size:19px;width:660px;margin-left:175px'>Fișierul a fost încărcat. Urmează să fie aprobat de un administrator. Vă mulțumim.</div>");
 	        else
-				print ("<div class='alert alert-warning' style='font-size:19px;width:541px;margin-left:225px'>Fișierul nu a putut fi încărcat. Vă rugăm încercați mai târziu.</div>");
+				print ("<div class='alert alert-warning' style='font-size:19px;width:500px;margin-left:250px'>Fișierul nu a putut fi încărcat. Vă rugăm încercați mai târziu.</div>");
 		}
 
 		if (isset($_POST['checkbox_draft'])) {
 			$r_upload_draft = upload_draft($username, $artist, $titlu, $text);
 			if ($r_upload_draft)
-				print ("Fisierul a fost incarcat cu succes!<br>");
+				print ("<div class='alert alert-success' style='font-size:19px;width:320px;margin-left:340px'>Draftul a fost încărcat. Vă mulțumim.</div>");
 			else
-				print ("Fisierul nu a fost incarcat cu succes!<br>");
+				print ("<div class='alert alert-warning' style='font-size:19px;width:500px;margin-left:250px'>Draftul nu a putut fi încărcat. Vă rugăm încercați mai târziu.</div>");
 		}
     }
 ?>

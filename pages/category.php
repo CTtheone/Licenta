@@ -10,7 +10,7 @@
 <table class="table table-striped">
     <thead>
 		<tr>
-			<th>Titlu</th>
+			<th>Piesa</th>
 			<th>Artist</th>
 			<th>Contribuitor</th>
 		</tr>
