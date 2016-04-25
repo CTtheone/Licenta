@@ -35,7 +35,7 @@
 					<tr>
 						<td class="setWidth"><div class="setWidth"><?php print "<a href=\"index.php?artist=".$sg['artist']."\">".$sg['artist']."</a>";?></div></td>
 						<td class="setWidth"><div><?php print "<a href=\"index.php?draft=".$sg['id']."\">".$sg['titlu']."</a>";?></div></td>
-                        <td><button class=myButton type=\button\>Șterge</button></td>
+                        <td><button class=draftTableButton type=\button\>Șterge</button></td>
 					</tr>
 					<?php
 						}

@@ -5,7 +5,9 @@
         $id_song = $_GET['draft'];
         $query = get_draft_by_id($id_song);
         print "<h2>".$query['titlu']." - ".$query['artist']."</h2> Contribuitor: " . "<a href=\"index.php?user_uploads=1&username=" . $query['uploader']. "\">" . $query['uploader'] . "</a>";
+        print "<button class=draftViewButton type=\button\>Șterge draft</button>";
         print "<br/>";
+
 
         $filename = $query['cale'];
         if($filename) {
