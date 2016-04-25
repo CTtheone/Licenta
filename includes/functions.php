@@ -1,7 +1,7 @@
 <?php
 
 function connectDB(){
-    mysql_connect("localhost","root","cosmin") or die("Conectare esuata la MYSQL!");
+    mysql_connect("localhost","cosmintom","") or die("Conectare esuata la MYSQL!");
     mysql_select_db("licenta");
 }
 
