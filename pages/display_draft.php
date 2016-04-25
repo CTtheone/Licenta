@@ -4,11 +4,30 @@
     if(isset($_GET['draft'])){
         $id_song = $_GET['draft'];
         $query = get_draft_by_id($id_song);
-        print "<h2>".$query['titlu']." - ".$query['artist']."</h2> Contribuitor: " . "<a href=\"index.php?user_uploads=1&username=" . $query['uploader']. "\">" . $query['uploader'] . "</a>";
-        print "<button class=draftViewButton type=\button\>Șterge draft</button>";
-        print "<br/>";
+        print "<div id=\"titlu\" style=\"clear:both\">";
+?>
+    <div class="autoscroll-fixed" style="float:left;clear:both;margin-top:10px" id="autoscrolId">
+        <button id="autoscroll" class="btn btn-default autoScrollClass" value="Autoscroll reset" onclick="pageScroll(0)">Autoscroll reset</button>
+        </br>
+        <button class="btn btn-default autoScrollClass" id="autoscroll_1" value="1" onclick="pageScrollVeryLow()">1</button>
+        <button class="btn btn-default autoScrollClass" id="autoscroll_2" value="2" onclick="pageScrollLow()">2</button>
+        <button class="btn btn-default autoScrollClass" id="autoscroll_3" value="3" onclick="pageScrollNormal()">3</button>
+        <button class="btn btn-default autoScrollClass" id="autoscroll_4" value="4" onclick="pageScrollHigh()">4</button>
+        <button class="btn btn-default autoScrollClass" id="autoscroll_5" value="5" onclick="pageScrollVeryHigh()">5</button>
+    </div>
 
 
+<?php
+        print "<h2>".$query['titlu']." - ".$query['artist']."</h2></div>";
+?>
+<?php
+        print "Contribuitor: " . "<a href=\"index.php?user_uploads=1&username=" . $query['uploader']. "\">" . $query['uploader'] . "</a>";
+?>
+        <button class=draftViewButton type=button>Șterge draft</button>
+        <br/>
+
+
+<?php
         $filename = $query['cale'];
         if($filename) {
             $f1 = fopen($filename, "r");
@@ -58,15 +77,7 @@
 		</script>
 	</div>
 
-	<div class="autoscroll-fixed col-sm-2" id="autoscrolId">
-		<button id="autoscroll" class="btn btn-default autoScrollClass" value="Autoscroll reset" onclick="pageScroll(0)">Autoscroll reset</button>
-		</br>
-		<button class="btn btn-default autoScrollClass" id="autoscroll_1" value="1" onclick="pageScrollVeryLow()">1</button>
-		<button class="btn btn-default autoScrollClass" id="autoscroll_2" value="2" onclick="pageScrollLow()">2</button>
-		<button class="btn btn-default autoScrollClass" id="autoscroll_3" value="3" onclick="pageScrollNormal()">3</button>
-		<button class="btn btn-default autoScrollClass" id="autoscroll_4" value="4" onclick="pageScrollHigh()">4</button>
-		<button class="btn btn-default autoScrollClass" id="autoscroll_5" value="5" onclick="pageScrollVeryHigh()">5</button>
-	</div>
+
 
 </div>
 
