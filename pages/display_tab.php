@@ -164,7 +164,6 @@
 
 <?php
   if (isset($_SESSION['user']))
-	    if ($query['uploader'] != $_SESSION['user'][1])	{
 ?>
 		<div class="container">
 			<div class="row">
@@ -189,7 +188,7 @@
 			</div>
 		</div>
 <?php
-	    }
+
  ?>
 
 <?php
@@ -312,7 +311,6 @@
 			}
 		}
 	?>
-	<h3 class="comment">Comentarii:</h3>
 	<?php
 		$comments_file = $query['comments_path'];
 		display_comm($comments_file);

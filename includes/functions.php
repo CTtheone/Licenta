@@ -79,7 +79,7 @@ function uploadFile($username, $artist, $titlu, $categorie, $text) {
     $last_id =  mysql_fetch_array($res)[0];
     $last_id = $last_id + 1;
 
-    $filename = "tmp_upload/" . $username . "_" . $artist . "_" . $titlu . $last_id . ".txt";
+    $filename = "tmp_upload/" . "_" . $artist . "_" . $titlu . $last_id . ".txt";
     $comments = "comments/" . $artist . "_" . $titlu . $last_id . $last_id . "_comm.txt";
 
 	connectDB();
@@ -267,7 +267,7 @@ function upload_draft($username, $artist, $titlu, $text) {
     $last_id =  mysql_fetch_array($res)[0];
     $last_id = $last_id + 1;
 
-    $filename = "drafts/" . $username . "_" . $artist . "_" . $titlu . $last_id . ".txt";
+    $filename = "drafts/" . "_" . $artist . "_" . $titlu . $last_id . ".txt";
 
 	connectDB();
 	mysql_query("INSERT INTO `drafts` (`id`, `artist`, `titlu`, `cale`, `uploader`) VALUES (NULL, '$artist', '$titlu', '$filename', '$username');");
