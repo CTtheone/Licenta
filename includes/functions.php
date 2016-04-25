@@ -80,7 +80,7 @@ function uploadFile($username, $artist, $titlu, $categorie, $text) {
     $last_id = $last_id + 1;
 
     $filename = "tmp_upload/" . $username . "_" . $artist . "_" . $titlu . $last_id . ".txt";
-    $comments = "comments/" . $artist . "_" . $titlu . $last_id . "_comm.txt";
+    $comments = "comments/" . $artist . "_" . $titlu . $last_id . $last_id . "_comm.txt";
 
 	connectDB();
 	mysql_query("INSERT INTO `melodii` (`id`, `artist`, `titlu`, `cale_tmp`, `cale`, `categorie`, `uploader`, `plus`, `minus`,`comments_path`) VALUES (NULL, '$artist', '$titlu', '$filename', NULL, '$categorie', '$username', 0, 0, '$comments');");
@@ -238,6 +238,7 @@ function display_comm($comments_file) {
         $file = fopen($comments_file, "r");
 
         if (filesize($comments_file) > 0){
+            echo "<h3 class=\"comment\">Comentarii:</h3>";
             $contents = fread($file, filesize($comments_file));
             $comm = preg_split("/[$]+\r\n/", $contents);
             for($i = 1; $i < count($comm); $i++) {
