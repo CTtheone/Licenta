@@ -126,7 +126,7 @@ function get_numberOf_requests_by_artist($artist){
 
 function get_songs_by_category($category) {
     connectDB();
-    $result = mysql_query("SELECT * FROM melodii WHERE categorie='$category' and cale is not NULL order by titlu, artist");
+    $result = mysql_query("SELECT * FROM melodii WHERE categorie='$category' and cale is not NULL order by artist, titlu");
 
     $songs = array();
     while($p = mysql_fetch_array($result)){
@@ -143,7 +143,7 @@ function get_song_by_id($id_song) {
 
 function get_songs_by_artist($artist) {
     connectDB();
-    $result = mysql_query("SELECT * FROM melodii WHERE artist='$artist' and cale is not NULL order by titlu");
+    $result = mysql_query("SELECT * FROM melodii WHERE artist='$artist' and cale is not NULL order by artist, titlu");
 
     $songs = array();
     while($p = mysql_fetch_array($result)){
@@ -154,7 +154,7 @@ function get_songs_by_artist($artist) {
 
 function get_songs_by_uploader($uploader) {
     connectDB();
-    $result = mysql_query("SELECT * FROM melodii WHERE uploader='$uploader' and cale is not NULL order by titlu");
+    $result = mysql_query("SELECT * FROM melodii WHERE uploader='$uploader' and cale is not NULL order by artist, titlu");
 
     $songs = array();
     while($p = mysql_fetch_array($result)){
@@ -165,7 +165,7 @@ function get_songs_by_uploader($uploader) {
 
 function get_requests_by_artist($artist){
     connectDB();
-    $result = mysql_query("SELECT * FROM cereri WHERE artist='$artist' order by titlu");
+    $result = mysql_query("SELECT * FROM cereri WHERE artist='$artist' order by artist, titlu");
 
     $songs = array();
     while($p = mysql_fetch_array($result)){
@@ -176,9 +176,9 @@ function get_requests_by_artist($artist){
 
 function get_result_of_search($item) {
     connectDB();
-    $result1 = mysql_query("SELECT * FROM melodii WHERE UPPER(artist) like UPPER('$item%') and cale is not NULL order by titlu");
-    $result2 = mysql_query("SELECT * FROM melodii WHERE UPPER(categorie) like UPPER('$item%') and cale is not NULL order by titlu, artist");
-    $result3 = mysql_query("SELECT * FROM melodii WHERE UPPER(titlu) like UPPER('$item%') and cale is not NULL order by titlu, artist");
+    $result1 = mysql_query("SELECT * FROM melodii WHERE UPPER(artist) like UPPER('$item%') and cale is not NULL order by artist, titlu");
+    $result2 = mysql_query("SELECT * FROM melodii WHERE UPPER(categorie) like UPPER('$item%') and cale is not NULL order by artist, titlu");
+    $result3 = mysql_query("SELECT * FROM melodii WHERE UPPER(titlu) like UPPER('$item%') and cale is not NULL order by artist, titlu");
 
     $items = array();
     while($p = mysql_fetch_array($result1)){
@@ -278,7 +278,7 @@ function upload_draft($username, $artist, $titlu, $text) {
 
 function get_drafts_of_uploader($username) {
     connectDB();
-    $result = mysql_query("SELECT * FROM drafts WHERE uploader='$username' order by titlu");
+    $result = mysql_query("SELECT * FROM drafts WHERE uploader='$username' order by artist, titlu");
 
     $songs = array();
     while($p = mysql_fetch_array($result)){
@@ -301,7 +301,7 @@ function is_user_admin($username) {
 
 function get_all_tmp_songs() {
     connectDB();
-    $result = mysql_query("SELECT * FROM melodii WHERE cale is NULL and cale_tmp is not NULL order by titlu");
+    $result = mysql_query("SELECT * FROM melodii WHERE cale is NULL and cale_tmp is not NULL order by artist, titlu");
 
     $songs = array();
     while($p = mysql_fetch_array($result)){

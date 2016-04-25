@@ -10,8 +10,8 @@
 <table class="table table-striped">
     <thead>
 		<tr>
-			<th>Piesa</th>
 			<th>Artist</th>
+			<th>Piesa</th>
 			<th>Contribuitor</th>
 		</tr>
 	</thead>
@@ -20,8 +20,8 @@
 			foreach ($songs as $sg){
 		?>
 		<tr>
-			<td><?php print "<a href=\"index.php?song=".$sg['id']."\">".$sg['titlu']."</a>";?></td>
 			<td><?php print "<a href=\"index.php?artist=".$sg['artist']."\">".$sg['artist']."</a>";?></td>
+			<td><?php print "<a href=\"index.php?song=".$sg['id']."\">".$sg['titlu']."</a>";?></td>
 			<td><a href="index.php?user_uploads=1&username=<?php echo $sg['uploader']; ?>"><?php print $sg['uploader'];?></a></td>
 		</tr>
 		<?php
