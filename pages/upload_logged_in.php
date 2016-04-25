@@ -152,5 +152,10 @@
 			else
 				print ("<div class='alert alert-warning' style='font-size:19px;width:500px;margin-left:250px'>Draftul nu a putut fi încărcat. Vă rugăm încercați mai târziu.</div>");
 		}
+
+		echo '<script type="text/javascript">'
+		   , 'window.scrollTo(0,document.body.scrollHeight);'
+		   , '</script>'
+		;
     }
 ?>

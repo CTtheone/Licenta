@@ -114,6 +114,8 @@ print "<form class=\"form-horizontal\" role=\"form\" id=\"contact-form\" action=
             $.post(ajaxurl, data, function (response) {
                 console.log("i'm back");
                 $("#succes_message").show();
+    		    window.scrollTo(0,document.body.scrollHeight);
+
                 // Response div goes here.
             });
         });

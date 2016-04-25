@@ -306,6 +306,11 @@
 				$new_mesaj = $_POST['textcomm'];
 				if($new_mesaj) {
 					add_new_comm($_SESSION['user'], $query['comments_path'], $new_mesaj);
+                    echo '<script type="text/javascript">'
+            		   , 'window.scrollTo(0,document.body.scrollHeight);'
+            		   , '</script>'
+            		;
+
 				} else
 					echo "<h5>Introduceti mesajul!</h5>";
 			}
