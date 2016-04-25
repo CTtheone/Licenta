@@ -19,12 +19,13 @@
         <div class="row col-sm-8">
 		  <h4 style="font-weight:bold">Tabulaturi draft</h4>
         </div>
-		<div class="row col-sm-8">
+		<div class="row col-sm-12">
 			<table id="drafts_table" class="table table-striped">
 		        <thead>
 					<tr>
 						<th class="col-sm-4">Artist</th>
 						<th class="col-sm-4">Piesa</th>
+                        <th class="col-sm-4"\>
 					</tr>
 				</thead>
 				<tbody>
@@ -34,6 +35,7 @@
 					<tr>
 						<td class="setWidth"><div class="setWidth"><?php print "<a href=\"index.php?artist=".$sg['artist']."\">".$sg['artist']."</a>";?></div></td>
 						<td class="setWidth"><div><?php print "<a href=\"index.php?draft=".$sg['id']."\">".$sg['titlu']."</a>";?></div></td>
+                        <td><button class=myButton type=\button\>Șterge</button></td>
 					</tr>
 					<?php
 						}
