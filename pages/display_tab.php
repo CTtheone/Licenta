@@ -4,6 +4,17 @@
     if(isset($_GET['song'])){
         $id_song = $_GET['song'];
         $query = get_song_by_id($id_song);
+?>
+        <div class="autoscroll-fixed autoScrollClass" style="margin-left:900px;margin-top:20px" id="autoscrolId">
+            <button id="autoscroll" class="btn btn-default" value="Autoscroll reset" onclick="pageScroll(0)">Autoscroll reset</button>
+            </br>
+            <button class="btn btn-default autoScrollClass" id="autoscroll_1" value="1" onclick="pageScrollVeryLow()">1</button>
+            <button class="btn btn-default autoScrollClass" id="autoscroll_2" value="2" onclick="pageScrollLow()">2</button>
+            <button class="btn btn-default autoScrollClass" id="autoscroll_3" value="3" onclick="pageScrollNormal()">3</button>
+            <button class="btn btn-default autoScrollClass" id="autoscroll_4" value="4" onclick="pageScrollHigh()">4</button>
+            <button class="btn btn-default autoScrollClass" id="autoscroll_5" value="5" onclick="pageScrollVeryHigh()">5</button>
+        </div>
+<?php
         print "<h2>".$query['titlu']." - ".$query['artist']."</h2> Contribuitor: " . "<a href=\"index.php?user_uploads=1&username=" . $query['uploader']. "\">" . $query['uploader'] . "</a>";
         print "<br/>";
 
@@ -149,17 +160,6 @@
 				document.write(to_update);
 			</script>
 		</div>
-
-		<div class="autoscroll-fixed col-sm-2 autoScrollClass" id="autoscrolId">
-			<button id="autoscroll" class="btn btn-default" value="Autoscroll reset" onclick="pageScroll(0)">Autoscroll reset</button>
-			</br>
-			<button class="btn btn-default autoScrollClass" id="autoscroll_1" value="1" onclick="pageScrollVeryLow()">1</button>
-			<button class="btn btn-default autoScrollClass" id="autoscroll_2" value="2" onclick="pageScrollLow()">2</button>
-			<button class="btn btn-default autoScrollClass" id="autoscroll_3" value="3" onclick="pageScrollNormal()">3</button>
-			<button class="btn btn-default autoScrollClass" id="autoscroll_4" value="4" onclick="pageScrollHigh()">4</button>
-			<button class="btn btn-default autoScrollClass" id="autoscroll_5" value="5" onclick="pageScrollVeryHigh()">5</button>
-		</div>
-
 	</div>
 
 <?php

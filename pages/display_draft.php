@@ -6,7 +6,7 @@
         $query = get_draft_by_id($id_song);
         print "<div id=\"titlu\" style=\"clear:both\">";
 ?>
-    <div class="autoscroll-fixed" style="float:left;clear:both;margin-top:10px" id="autoscrolId">
+    <div class="autoscroll-fixed" style="float:left;clear:both;margin-top:10px;margin-left:900px" id="autoscrolId">
         <button id="autoscroll" class="btn btn-default autoScrollClass" value="Autoscroll reset" onclick="pageScroll(0)">Autoscroll reset</button>
         </br>
         <button class="btn btn-default autoScrollClass" id="autoscroll_1" value="1" onclick="pageScrollVeryLow()">1</button>
