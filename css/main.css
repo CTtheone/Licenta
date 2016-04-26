@@ -299,3 +299,21 @@ body {
 .draftViewButton:focus {
     outline: 0 !important;
 }
+
+.astext {
+    background:none;
+    border:none;
+    margin:0;
+    padding:0;
+    text-decoration: none;
+}
+.astext:hover {
+    text-decoration: none;
+    background:none;
+    border:none;
+    margin:0;
+    padding:0;
+}
+.astext:focus {
+    outline: 0 !important;
+}

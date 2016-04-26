@@ -18,10 +18,10 @@
 
 
 <?php
-        print "<h2>".$query['titlu']." - ".$query['artist']."</h2></div>";
-?>
-<?php
+        print "<h2>".$query['titlu'] . " - " . "<a class=\"astext\" href=\"index.php?artist=" . $query['artist'] . "\">" . $query['artist'] . "</a>" . "</h2>";
+
         print "Contribuitor: " . "<a href=\"index.php?user_uploads=1&username=" . $query['uploader']. "\">" . $query['uploader'] . "</a>";
+
         $user_logged_in = $_SESSION['user'][1];
 
         if ($user_logged_in === $query['uploader']) {
