@@ -1,10 +1,10 @@
 <div class="artist_tabs">
 <style>
-.setWidth {
-    max-width: 330px;
-    padding: 0px;
-    margin: 0px;
-}
+    .setWidth {
+        max-width: 330px;
+        padding: 0px;
+        margin: 0px;
+    }
 </style>
 <?php
 	$username = $_GET['username'];
@@ -16,44 +16,46 @@
 
 	if (count($all_drafts) != 0) {
 ?>
-        <div class="row col-sm-8">
-		  <h4 style="font-weight:bold">Tabulaturi draft</h4>
+        <div id="draft_div">
+            <div id="draft_title" class="row col-sm-8">
+    		  <h4 style="font-weight:bold">Tabulaturi draft</h4>
+            </div>
+    		<div id="draft_table" class="row col-sm-12">
+    			<table id="drafts_table" class="table table-striped">
+    		        <thead>
+    					<tr>
+    						<th class="col-sm-4">Artist</th>
+    						<th class="col-sm-4">Piesa</th>
+                            <th class="col-sm-4"\>
+    					</tr>
+    				</thead>
+    				<tbody id="draft_table_body">
+    					<?php
+    						foreach ($all_drafts as $sg){
+    					?>
+    					<tr id="tr<?php echo $sg['id']?>">
+    						<td class="setWidth"><div class="setWidth"><?php print "<a href=\"index.php?artist=".$sg['artist']."\">".$sg['artist']."</a>";?></div></td>
+    						<td class="setWidth"><div><?php print "<a href=\"index.php?draft=".$sg['id']."\">".$sg['titlu']."</a>";?></div></td>
+                            <td><button class=draftTableButton type=button onclick="button_erase_draft_user_uploads(<?php echo $sg['id']?>, '<?php echo $sg['cale']?>');">Șterge</button></td>
+    					</tr>
+    					<?php
+    						}
+    					?>
+    				</tbody>
+    		    </table>
+    		</div>
+		    <br><br><br><br><br>
         </div>
-		<div class="row col-sm-12">
-			<table id="drafts_table" class="table table-striped">
-		        <thead>
-					<tr>
-						<th class="col-sm-4">Artist</th>
-						<th class="col-sm-4">Piesa</th>
-                        <th class="col-sm-4"\>
-					</tr>
-				</thead>
-				<tbody>
-					<?php
-						foreach ($all_drafts as $sg){
-					?>
-					<tr>
-						<td class="setWidth"><div class="setWidth"><?php print "<a href=\"index.php?artist=".$sg['artist']."\">".$sg['artist']."</a>";?></div></td>
-						<td class="setWidth"><div><?php print "<a href=\"index.php?draft=".$sg['id']."\">".$sg['titlu']."</a>";?></div></td>
-                        <td><button class=draftTableButton type=button onclick="button_erase_draft_user_uploads(<?php echo $sg['id']?>, '<?php echo $sg['cale']?>');">Șterge</button></td>
-					</tr>
-					<?php
-						}
-					?>
-				</tbody>
-		    </table>
-		</div>
-		<br><br><br><br><br>
 
         <script>
             function button_erase_draft_user_uploads(id_draft, cale) {
                 var ajaxurl = 'pages/remove_draft.php';
                 data =  {'id_draft' : id_draft, 'cale_draft' : cale};
-                console.log(data);
                 $.post(ajaxurl, data, function (response) {
-                    console.log("i'm back");
-                    // Response div goes here.
-                    location.reload();
+                    $("#tr" + id_draft).remove();
+                    if ($("#draft_table_body > tr").length == 0) {
+                        $("#draft_div").remove();
+                    }
                 });
             }
         </script>
