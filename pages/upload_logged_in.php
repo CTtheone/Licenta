@@ -2,7 +2,7 @@
 	<div class="col-sm-offset-4 col-sm-4"><h3>Încarcă acorduri</h3><br></div>
 </div>
 
-<form class="form-horizontal" role="form" id="contact-form" action="index.php?upload=1" method="post">
+<form class="form-horizontal" role="form" id="contact-form" method="post">
   <div class="form-group">
     <label class="control-label col-sm-3" for="artist">Artist:</label>
     <div class="col-sm-3">
