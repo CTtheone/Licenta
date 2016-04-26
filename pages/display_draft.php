@@ -22,12 +22,27 @@
 ?>
 <?php
         print "Contribuitor: " . "<a href=\"index.php?user_uploads=1&username=" . $query['uploader']. "\">" . $query['uploader'] . "</a>";
+        $user_logged_in = $_SESSION['user'][1];
+
+        if ($user_logged_in === $query['uploader']) {
+            $user_href = "index.php?user_uploads=1&username=" . $user_logged_in;
 ?>
-        <button class=draftViewButton type=button>Șterge draft</button>
-        <br/>
-
-
+            <button class=draftViewButton type=button onclick="button_sterge_draft();">Șterge draft</button>
+            <script>
+                function button_sterge_draft() {
+                    var ajaxurl = 'pages/remove_draft.php';
+                    data =  {'id_draft' : <?php echo $id_song;?>, 'cale_draft' : "<?php echo $query['cale'];?>"};
+                    console.log(data);
+                    $.post(ajaxurl, data, function (response) {
+                        console.log("i'm back");
+                        // Response div goes here.
+                    });
+                    location.href = "<?php echo $user_href?>";
+                }
+            </script>
+            <br/>
 <?php
+        }
         $filename = $query['cale'];
         if($filename) {
             $f1 = fopen($filename, "r");
