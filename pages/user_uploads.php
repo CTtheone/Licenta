@@ -35,7 +35,7 @@
 					<tr>
 						<td class="setWidth"><div class="setWidth"><?php print "<a href=\"index.php?artist=".$sg['artist']."\">".$sg['artist']."</a>";?></div></td>
 						<td class="setWidth"><div><?php print "<a href=\"index.php?draft=".$sg['id']."\">".$sg['titlu']."</a>";?></div></td>
-                        <td><button class=draftTableButton type=\button\>Șterge</button></td>
+                        <td><button class=draftTableButton type=button onclick="button_erase_draft_user_uploads(<?php echo $sg['id']?>, '<?php echo $sg['cale']?>');">Șterge</button></td>
 					</tr>
 					<?php
 						}
@@ -44,6 +44,19 @@
 		    </table>
 		</div>
 		<br><br><br><br><br>
+
+        <script>
+            function button_erase_draft_user_uploads(id_draft, cale) {
+                var ajaxurl = 'pages/remove_draft.php';
+                data =  {'id_draft' : id_draft, 'cale_draft' : cale};
+                console.log(data);
+                $.post(ajaxurl, data, function (response) {
+                    console.log("i'm back");
+                    // Response div goes here.
+                    location.reload();
+                });
+            }
+        </script>
 
 <?php
 	}

@@ -27,9 +27,9 @@
         if ($user_logged_in === $query['uploader']) {
             $user_href = "index.php?user_uploads=1&username=" . $user_logged_in;
 ?>
-            <button class=draftViewButton type=button onclick="button_sterge_draft();">Șterge draft</button>
+            <button class=draftViewButton type=button onclick="button_erase_draft();">Șterge draft</button>
             <script>
-                function button_sterge_draft() {
+                function button_erase_draft() {
                     var ajaxurl = 'pages/remove_draft.php';
                     data =  {'id_draft' : <?php echo $id_song;?>, 'cale_draft' : "<?php echo $query['cale'];?>"};
                     console.log(data);
