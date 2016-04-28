@@ -324,7 +324,7 @@ function get_draft_by_id($id_song) {
 function is_user_admin($username) {
     connectDB();
     $result = mysql_query("SELECT admin FROM users WHERE username='$username'");
-    return $result;
+    return mysql_fetch_array($result);
 }
 
 function get_all_tmp_songs() {
@@ -342,6 +342,10 @@ function get_tmp_song_by_id($id_song) {
     connectDB();
     $result = mysql_query("SELECT * FROM melodii WHERE id='$id_song'");
     return mysql_fetch_array($result);
+}
+
+function get_user_requests($item) {
+    #TODO
 }
 
 ?>

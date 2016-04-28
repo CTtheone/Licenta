@@ -120,7 +120,7 @@
         			foreach ($result as $res){
         		?>
         		<tr>
-        			<td><?php print "<a href=\"index.php?username=".$res['username']."\">".$res['username']."</a>";?></td>
+        			<td><?php print "<a href=\"index.php?user_uploads=1&username=".$res['username']."\">".$res['username']."</a>";?></td>
         			<td><?php print $res['email'] ?></td>
         		</tr>
         		<?php

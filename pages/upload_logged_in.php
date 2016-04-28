@@ -151,7 +151,7 @@
 		if (isset($_POST['checkbox_draft'])) {
 			$r_upload_draft = upload_draft($username, $artist, $titlu, $text);
 			if ($r_upload_draft)
-				print ("<div class='alert alert-success' style='font-size:19px;width:320px;margin-left:340px;margin-bottom: 0px;margin-top: 25px;'>Draftul a fost încărcat. Vă mulțumim.</div>");
+				print ("<div class='alert alert-success' style='font-size:19px;width:320px;margin-left:320px;margin-bottom: 0px;margin-top: 25px;'>Draftul a fost încărcat. Vă mulțumim.</div>");
 			else
 				print ("<div class='alert alert-warning' style='font-size:19px;width:500px;margin-left:250px;margin-bottom: 0px;margin-top: 25px;'>Draftul nu a putut fi încărcat. Vă rugăm încercați mai târziu.</div>");
 		}
