@@ -17,24 +17,24 @@
         if(button1.disabled == true) {
             button1.disabled = false;
             button2.disabled = true;
-            if(table1!=null)
+            if(table1 != null)
                 table1.style.display = "none";
-            if(table2!=null)
+            if(table2 != null)
                 table2.style.display = "table";
-            if(error_t!=null)
+            if(error_t != null)
                 error_t.style.display="none";
-            if (error_r!=null)
-            error_r.style.display="block";
+            if (error_r != null)
+                error_r.style.display="block";
         } else {
             button1.disabled = true;
             button2.disabled = false;
-            if(table1!=null)
+            if(table1 != null)
                 table1.style.display="table";
-            if(table2!=null)
+            if(table2 != null)
                 table2.style.display="none";
-            if(error_t!=null)
+            if(error_t != null)
                 error_t.style.display="block";
-            if(error_r!=null)
+            if(error_r != null)
                 error_r.style.display="none";
         }
     }

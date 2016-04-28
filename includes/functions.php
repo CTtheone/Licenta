@@ -174,7 +174,7 @@ function get_requests_by_artist($artist){
     return $songs;
 }
 
-function get_result_of_search($item) {
+function get_result_of_search_tabs($item) {
     connectDB();
     $result1 = mysql_query("SELECT * FROM melodii WHERE UPPER(artist) like UPPER('$item%') and cale is not NULL order by artist, titlu");
     $result2 = mysql_query("SELECT * FROM melodii WHERE UPPER(categorie) like UPPER('$item%') and cale is not NULL order by artist, titlu");
@@ -191,6 +191,33 @@ function get_result_of_search($item) {
     while($p = mysql_fetch_array($result3)){
         if (!in_array($p, $items))
             $items[] = $p;
+    }
+    return $items;
+}
+
+function get_result_of_search_requests($item) {
+    connectDB();
+    $result1 = mysql_query("SELECT * FROM cereri WHERE UPPER(artist) like UPPER('$item%') order by artist, titlu");
+    $result2 = mysql_query("SELECT * FROM cereri WHERE UPPER(titlu) like UPPER('$item%') order by artist, titlu");
+
+    $items = array();
+    while($p = mysql_fetch_array($result1)){
+        $items[] = $p;
+    }
+    while($p = mysql_fetch_array($result2)){
+        if (!in_array($p, $items))
+            $items[] = $p;
+    }
+    return $items;
+}
+
+function get_result_of_search_users($item) {
+    connectDB();
+    $result1 = mysql_query("SELECT * FROM users WHERE UPPER(username) like UPPER('$item%') order by username");
+
+    $items = array();
+    while($p = mysql_fetch_array($result1)){
+        $items[] = $p;
     }
     return $items;
 }
