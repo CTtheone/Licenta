@@ -197,35 +197,52 @@
     ?>
 </div>
 
-<div id="requests_div">
+<div id="requests_div" style="display:none">
     <?php
-        $result = get_user_requests($item);
+        $result = get_user_requests($username);
         if (count($result) == 0) {
-            print "<div class='alert alert-info' style='font-size:19px;width:327px;margin-left:0px'>Nu există rezultate pentru căutare.</div>";
+            print "<div class='alert alert-info' style='font-size:19px;width:247px;margin-left:0px'>Nu există abonări la cereri.</div>";
         } else {
     ?>
-        <table padding="10" class="table table-striped">
-        	<thead>
-        		<tr>
-        			<th>Artist</th>
-        			<th>Piesa</th>
-        			<th></th>
-        		</tr>
-        	</thead>
-        	<tbody>
-        		<?php
-        			foreach ($result as $res){
-        		?>
-        		<tr>
-        			<td><?php print "<a href=\"index.php?artist=".$res['artist']."\">".$res['artist']."</a>";?></td>
-        			<td><?php print $res['titlu'] ?></td>
-        			<td></td>
-        		</tr>
-        		<?php
-        			}
-        		?>
-        	</tbody>
-        </table>
+        <div id="draft_div_table">
+            <table padding="10" class="table table-striped">
+            	<thead>
+            		<tr>
+            			<th>Artist</th>
+            			<th>Piesa</th>
+            			<th></th>
+            		</tr>
+            	</thead>
+            	<tbody id="request_table_body">
+            		<?php
+            			foreach ($result as $res){
+            		?>
+            		<tr id="tr<?php print $res['id'] ?>">
+            			<td><?php print "<a href=\"index.php?artist=".$res['artist']."\">".$res['artist']."</a>";?></td>
+            			<td><?php print $res['titlu'] ?></td>
+            			<td><button class=draftTableButton type=button onclick="button_erase_request(<?php echo $res['id']?>);">Dezabonare</button></td>
+            		</tr>
+            		<?php
+            			}
+            		?>
+            	</tbody>
+            </table>
+        </div>
+        <div id="no_requests_info" class='alert alert-info' style='font-size:19px;width:247px;margin-left:0px;display:none'>Nu există abonări la cereri.</div>
+        <script>
+            function button_erase_request(id_cerere) {
+                console.log("id_cerere: " + id_cerere)
+                var ajaxurl = 'pages/remove_request.php';
+                data =  {'id' : id_cerere};
+                $.post(ajaxurl, data, function (response) {
+                    $("#tr" + id_cerere).remove();
+                    if ($("#request_table_body > tr").length == 0) {
+                        $("#draft_div_table").remove();
+                        $("#no_requests_info").css('display', 'block');
+                    }
+                });
+            }
+        </script>
     <?php
         }
     ?>

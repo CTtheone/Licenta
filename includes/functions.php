@@ -344,8 +344,15 @@ function get_tmp_song_by_id($id_song) {
     return mysql_fetch_array($result);
 }
 
-function get_user_requests($item) {
-    #TODO
+function get_user_requests($username) {
+    connectDB();
+    $query = "SELECT c.artist, c.titlu, c.id FROM abonari as a, cereri as c WHERE a.id_cerere = c.id and a.username = '$username'";
+    $result = mysql_query($query);
+    $request = array();
+    while($p = mysql_fetch_array($result)){
+        $request[] = $p;
+    }
+    return $request;
 }
 
 ?>

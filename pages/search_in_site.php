@@ -66,7 +66,7 @@
 <div id="requests_div" style="display: none;">
     <br>
 <?php
-    $result = get_result_of_search_requests($item);
+    $result = get_result_of_search_requests($username);
     if (count($result) == 0) {
         print "<div class='alert alert-info' style='font-size:19px;width:327px;margin-left:0px'>Nu există rezultate pentru căutare.</div>";
     } else {
