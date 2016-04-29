@@ -39,9 +39,9 @@
     <table padding="10" class="table table-striped">
     	<thead>
     		<tr>
-    			<th>Artist</th>
-    			<th>Piesa</th>
-    			<th>Contribuitor</th>
+    			<th class="col-sm-4">Artist</th>
+    			<th class="col-sm-4">Piesa</th>
+    			<th class="col-sm-4">Contribuitor</th>
     		</tr>
     	</thead>
     	<tbody>
