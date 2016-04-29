@@ -14,9 +14,9 @@
 <table class="table table-striped">
     <thead>
 		<tr>
-			<th>Artist</th>
-			<th>Număr tabulaturi</th>
-			<th>Număr cereri</th>
+			<th class="col-sm-4">Artist</th>
+			<th class="col-sm-4">Număr tabulaturi</th>
+			<th class="col-sm-4">Număr cereri</th>
 		</tr>
 	</thead>
 	<tbody>

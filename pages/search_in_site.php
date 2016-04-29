@@ -66,17 +66,32 @@
 <div id="requests_div" style="display: none;">
     <br>
 <?php
-    $result = get_result_of_search_requests($username);
+    $result = get_result_of_search_requests($item);
     if (count($result) == 0) {
         print "<div class='alert alert-info' style='font-size:19px;width:327px;margin-left:0px'>Nu există rezultate pentru căutare.</div>";
     } else {
+        $username = $_SESSION['user'][1];
+        if ($username != "") {
+            $loged_in = true;
+            $requests = get_user_requests($username);
+        } else {
+            $loged_in = false;
+        }
 ?>
+    <?php if ($loged_in == true) {
+        print "<div class=\"row col-sm-12\">";
+    } else {
+        print "<div class=\"row col-sm-8\">";
+
+    }?>
     <table padding="10" class="table table-striped">
     	<thead>
     		<tr>
-    			<th>Artist</th>
-    			<th>Piesa</th>
-    			<th></th>
+    			<th class="col-sm-4">Artist</th>
+    			<th class="col-sm-4">Piesa</th>
+                <?php if ($loged_in == true) {
+    			    print "<th class=\"col-sm-4\"></th>";
+                } ?>
     		</tr>
     	</thead>
     	<tbody>
@@ -86,13 +101,52 @@
     		<tr>
     			<td><?php print "<a href=\"index.php?artist=".$res['artist']."\">".$res['artist']."</a>";?></td>
     			<td><?php print $res['titlu'] ?></td>
-    			<td></td>
+                <?php if ($loged_in == true) {
+                        $found = false;
+                        foreach ($requests as $r) {
+                            if ($r['id'] == $res['id']) {
+                                $found = true;
+                            }
+                        }
+                        if ($found == true) {
+                ?>
+                        <td><button id="ab_<?php echo $res['id']?>" style="display:none" class=draftTableButton type=button onclick="button_add_request(<?php echo $res['id']?>);">Abonare</button>
+                            <button id="dez_<?php echo $res['id']?>" class=draftTableButton type=button onclick="button_erase_request(<?php echo $res['id']?>);">Dezabonare</button></td>
+                <?php
+                        } else {
+                ?>
+                        <td><button id="ab_<?php echo $res['id']?>" class=draftTableButton type=button onclick="button_add_request(<?php echo $res['id']?>);">Abonare</button>
+                            <button id="dez_<?php echo $res['id']?>" style="display:none" class=draftTableButton type=button onclick="button_erase_request(<?php echo $res['id']?>);">Dezabonare</button></td>
+                <?php
+                    }
+                } ?>
     		</tr>
     		<?php
     			}
     		?>
     	</tbody>
+
+        <script>
+            function button_erase_request(id_cerere) {
+                var ajaxurl = 'pages/remove_request.php';
+                data =  {'id' : id_cerere};
+                $.post(ajaxurl, data, function (response) {
+                    $("#dez_" + id_cerere).css("display", "none");
+                    $("#ab_" + id_cerere).css("display", "block");
+                });
+            }
+            function button_add_request(id_cerere) {
+                var ajaxurl = 'pages/add_request.php';
+                data =  {'id' : id_cerere, 'user' : '<?php echo $username;?>'};
+                $.post(ajaxurl, data, function (response) {
+                    $("#ab_" + id_cerere).css("display", "none");
+                    $("#dez_" + id_cerere).css("display", "block");
+                });
+            }
+        </script>
+
     </table>
+    </div>
 <?php
     }
 ?>
