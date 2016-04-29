@@ -231,7 +231,6 @@
         <div id="no_requests_info" class='alert alert-info' style='font-size:19px;width:247px;margin-left:0px;display:none'>Nu există abonări la cereri.</div>
         <script>
             function button_erase_request(id_cerere) {
-                console.log("id_cerere: " + id_cerere)
                 var ajaxurl = 'pages/remove_request.php';
                 data =  {'id' : id_cerere};
                 $.post(ajaxurl, data, function (response) {

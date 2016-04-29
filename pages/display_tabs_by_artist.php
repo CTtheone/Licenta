@@ -57,9 +57,9 @@
     <table width="100%" id="tabs" class="table table-striped">
 		<thead>
 			<tr>
-				<th>Piesa</th>
-				<th>Contribuitor</th>
-				<th>Rating</th>
+				<th class="col-sm-4">Piesa</th>
+				<th class="col-sm-4">Contribuitor</th>
+				<th class="col-sm-4">Rating</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -79,16 +79,25 @@
 <?php
     }
     $all_requests = get_requests_by_artist($artist);
+    $username = $_SESSION['user'][1];
+    $requests = get_user_requests($username);
     if (count($all_requests) == 0) {
 ?>
     <div id="error_req" class='alert alert-info' style='display: none;font-size:17px;width:255px;margin-left:0px;margin-top:20px'>Ne pare rău. Nu există cereri.</div>
 <?php
     } else {
+        if ($username != "") {
+            $loged_in = true;
+        } else {
+            $loged_in = false;
+        }
 ?>
     <table id="requests" style="display: none" class="table table-striped">
         <thead>
 			<tr>
-				<th>Piesa</th>
+                <th class="col-sm-4">Artist</th>
+				<th class="col-sm-4">Piesa</th>
+                <th class="col-sm-4"></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -96,11 +105,49 @@
 				foreach ($all_requests as $sg) {
 			?>
 			<tr>
-				<td><?php print "<a style='padding:0px'>".$sg['titlu']."</a>" ?></td>
+                <td><?php print "<a href=\"index.php?artist=" . $sg['artist'] . "\" style='padding:0px'>" . $sg['artist'] . "</a>"; ?></td>
+				<td><?php print $sg['titlu']; ?></td>
+                <?php if (loged_in == true) {
+                        $found = false;
+                        foreach ($requests as $r) {
+                            if ($r['id'] == $sg['id']) {
+                                $found = true;
+                            }
+                        }
+                        if ($found == true) {
+                ?>
+                        <td><button id="ab_<?php echo $sg['id']?>" style="display:none" class=draftTableButton type=button onclick="button_add_request(<?php echo $sg['id']?>);">Abonare</button>
+                            <button id="dez_<?php echo $sg['id']?>" class=draftTableButton type=button onclick="button_erase_request(<?php echo $sg['id']?>);">Dezabonare</button></td>
+                <?php
+                    } else {
+                ?>
+                        <td><button id="ab_<?php echo $sg['id']?>" class=draftTableButton type=button onclick="button_add_request(<?php echo $sg['id']?>);">Abonare</button>
+                            <button id="dez_<?php echo $sg['id']?>" style="display:none" class=draftTableButton type=button onclick="button_erase_request(<?php echo $sg['id']?>);">Dezabonare</button></td>
+                <?php
+                    }
+                } ?>
 			</tr>
 			<?php
 				}
 			?>
+            <script>
+                function button_erase_request(id_cerere) {
+                    var ajaxurl = 'pages/remove_request.php';
+                    data =  {'id' : id_cerere};
+                    $.post(ajaxurl, data, function (response) {
+                        $("#dez_" + id_cerere).css("display", "none");
+                        $("#ab_" + id_cerere).css("display", "block");
+                    });
+                }
+                function button_add_request(id_cerere) {
+                    var ajaxurl = 'pages/add_request.php';
+                    data =  {'id' : id_cerere, 'user' : '<?php echo $username;?>'};
+                    $.post(ajaxurl, data, function (response) {
+                        $("#ab_" + id_cerere).css("display", "none");
+                        $("#dez_" + id_cerere).css("display", "block");
+                    });
+                }
+            </script>
 		</tbody>
     </table>
     <?php } ?>
