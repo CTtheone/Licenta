@@ -16,11 +16,12 @@ function send_mail($to_address, $to_name, $subject, $message) {
 	$mail->Password = "#tabulaturi"; // SMTP password
 
 	$mail->From = "tabulaturi.romanesti@gmail.com";
-	$mail->FromName = "Tabulaturi Romanesti";
+	$mail->FromName = "Tabulaturi Românești";
 
 	$mail->AddAddress($to_address, $to_name);
 
 	$mail->IsHTML(true);                                  // set email format to HTML
+	$mail->CharSet = "UTF-8";
 
 	$mail->Subject = $subject;
 	$mail->Body    = $message;
@@ -34,4 +35,3 @@ function send_mail($to_address, $to_name, $subject, $message) {
 	return $result;
 }
 ?>
-

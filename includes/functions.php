@@ -88,10 +88,10 @@ function uploadFile($username, $artist, $titlu, $categorie, $text) {
 
 	connectDB();
 	mysql_query("INSERT INTO `melodii` (`id`, `artist`, `titlu`, `cale_tmp`, `cale`, `categorie`, `uploader`, `plus`, `minus`,`comments_path`) VALUES (NULL, '$artist', '$titlu', '$filename', NULL, '$categorie', '$username', 0, 0, '$comments');");
-    $f1 = fopen($filename, "w");
-    $r1 = fwrite($f1, $text);
-    $r2 = fclose($f1);
-    return $f1 && $r1 && $r2;
+    fopen($filename, "w");
+    fwrite($f1, $text);
+    fclose($f1);
+    return $last_id;
 }
 
 function get_artists_by_first_letter($letter) {

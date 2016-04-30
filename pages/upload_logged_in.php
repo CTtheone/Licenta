@@ -141,11 +141,18 @@
 		echo '<script type="text/javascript"> $("#contact-form").remove(); $("#upload-title").remove();</script>';
 
 		if (isset($_POST['checkbox_comunitate'])) {
-			$r_upload_file = uploadFile($username, $artist, $titlu, $categorie, $text);
-	        if($r_upload_file)
+			$tab_tmp_id = uploadFile($username, $artist, $titlu, $categorie, $text);
+	        if($tab_tmp_id > 0) {
 				print ("<div class='alert alert-success' style='font-size:19px;width:660px;margin-left:175px;margin-bottom: 0px;margin-top: 25px;'>Fișierul a fost încărcat. Urmează să fie aprobat de un administrator. Vă mulțumim.</div>");
-	        else
+				// Sending mail to notify the admin that a new tab is waiting for approval
+				require_once("./includes/sendMail.php");
+				$link = "index.php?tmp-song=" . $tab_tmp_id;
+				$txt = "Utilizatorul: <b>" . $username . "</b> a încărcat tabulatura: <b>" . $artist . "</b> - <b>" . $titlu . "</b>. <br><br>";
+				$txt .= "Acodurile se pot vizualiza la url-ul:<br>" . $link;
+				$r = send_mail('tabulaturi.romanesti@gmail.com', 'Tabulaturi Românești', 'Tabulaturi - tabulatură în așteptare', $txt);
+			} else {
 				print ("<div class='alert alert-warning' style='font-size:19px;width:500px;margin-left:250px;margin-bottom: 0px;margin-top: 25px;'>Fișierul nu a putut fi încărcat. Vă rugăm încercați mai târziu.</div>");
+			}
 		}
 
 		if (isset($_POST['checkbox_draft'])) {

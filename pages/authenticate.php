@@ -36,6 +36,8 @@
 
 <?php
     if(isset($_POST['auth'])){
+        require("./includes/sendMail.php");
+
         $username = $_POST['username'];
         $parola = $_POST['password'];
         $email = $_POST['email'];
@@ -45,9 +47,10 @@
         else {
             print "<div class='alert alert-info' style='font-size:19px;width:260px;margin-left:335px'>Contul a fost creat cu succes!</div>";
 
-            $txt = "Bună ziua,\n\n Contul pe site-ul de tabulaturi a fost creat cu succes!\n\nMulțumim pentru alegere!";
+            $txt = "Bună ziua, " . $username . ",<br><br> Contul pe site-ul de tabulaturi a fost creat cu succes!<br><br>Mulțumim pentru alegere!";
 
-            $r = sendEmail($email, 'Tabulaturi <cosmintom@yahoo.com>', 'Tabulaturi - Creare cont nou', $txt);
+            // sending mail to the user
+            $r = send_mail($email, $username, 'Tabulaturi - Cont nou', $txt);
         }
     }
 ?>
