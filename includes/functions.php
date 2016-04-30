@@ -67,14 +67,18 @@ function sendEmail($to, $from, $subject, $txt) {
     // return true;
 }
 
-function requestChords($artist, $titlu) {
+function requestChords($artist, $titlu, $username) {
 	connectDB();
 	mysql_query("INSERT INTO `cereri` (`id`, `artist`, `titlu`) VALUES (NULL, '$artist', '$titlu');");
+
+    $res = mysql_query("SELECT MAX(`id`) FROM `cereri`");
+    $id_cerere =  mysql_fetch_array($res)[0];
+
+    mysql_query("INSERT INTO `abonari` VALUES ('$username', '$id_cerere')");
 	return true;
 }
 
 function uploadFile($username, $artist, $titlu, $categorie, $text) {
-    mysql_query("SELECT MAX(`id`) FROM `melodii`");
     $res = mysql_query("SELECT MAX(`id`) FROM `melodii`");
     $last_id =  mysql_fetch_array($res)[0];
     $last_id = $last_id + 1;

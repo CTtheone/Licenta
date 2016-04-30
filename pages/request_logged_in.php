@@ -29,7 +29,8 @@
 	if(isset($_POST['cere'])){
         $artist = $_POST['artist'];
         $titlu = $_POST['titlu'];
-		$r = requestChords($artist, $titlu);
+        $username = $_SESSION['user'][1];
+		$r = requestChords($artist, $titlu, $username);
 		if($r)
       die ("<div class='alert alert-success' style='font-size:19px;width:345px;margin-left:270px'>Cererea a fost trimisă. Vă mulțumim.</div>");
     else
