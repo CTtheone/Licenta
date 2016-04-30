@@ -33,16 +33,21 @@
 
 <?php
 if(isset($_POST['contact'])){
+        require("./includes/sendMail.php");
+
+        // require("/var/www/html/Licenta/includes/sendMail.php");
+
         $name = $_POST['nume'];
         $from = $_POST['email'];
         $comment = $_POST['comment'];
 
-        $txt = 'Comentariu trimis de: ' . $name . "\n\n" . $comment;
+        $txt = '<b>Comentariu trimis de:</b> <br>' . $name . "  " . $from . "<br><br><b>Mesaj:</b><br>" . $comment;
 
-        $r = sendEmail('cosmintom@yahoo.com', $from, 'Tabulaturi - mesaj utilizator', $txt);
-        if($r)
+        $r = send_mail('tabulaturi.romanesti@gmail.com', 'Tabulaturi Romanesti', 'Tabulaturi - mesaj utilizator contact', $txt);
+        if($r == true) {
             die ("<div class='alert alert-success' style='width:320px;margin-left:340px;font-size:18px'>Mesajul a fost trimis. Vă mulțumim.</div>");
-        else
+        } else {
             die ("<div class='alert alert-warning' style='width:501px;margin-left:250px;font-size:18px'>Mesajul nu a putut fi trimis. Vă rugăm încercați mai târziu.</div>");
+        }
     }
 ?>
