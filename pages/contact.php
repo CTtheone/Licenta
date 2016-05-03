@@ -33,7 +33,7 @@
 
 <?php
 if(isset($_POST['contact'])){
-        require("./includes/sendMail.php");
+        require_once("./includes/sendMail.php");
 
         // require("/var/www/html/Licenta/includes/sendMail.php");
 

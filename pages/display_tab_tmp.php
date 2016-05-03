@@ -110,7 +110,7 @@ print "<form class=\"form-horizontal\" role=\"form\" id=\"contact-form\" action=
             var ajaxurl = 'pages/accept_decline_tmp_tab.php';
             var cale_tmp = <?php echo "\"" . $query['cale_tmp'] . "\"";?>;
             var cale = "tab_uploads" + cale_tmp.substring("tmp_upload".length);
-            data =  {'action': clickBtnValue, 'id_song' : <?php echo $id_song;?>, 'cale_tmp' : cale_tmp, 'cale' : cale};
+            data =  {'action': clickBtnValue, 'id_song' : <?php echo $id_song;?>, 'cale_tmp' : cale_tmp, 'cale' : cale, 'titlu' : '<?php echo $query['titlu'];?>', 'artist' : '<?php echo $query['artist'];?>'};
             console.log(data);
             $.post(ajaxurl, data, function (response) {
                 console.log("i'm back");

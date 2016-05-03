@@ -205,12 +205,15 @@
         } else {
     ?>
         <div id="draft_div_table">
+            <div class="row col-sm-8">
+                <h4 style="font-weight:bold">Cereri</h4>
+            </div>
             <table padding="10" class="table table-striped">
             	<thead>
             		<tr>
-            			<th>Artist</th>
-            			<th>Piesa</th>
-            			<th></th>
+            			<th class="col-sm-4">Artist</th>
+            			<th class="col-sm-4">Piesa</th>
+            			<th class="col-sm-4"></th>
             		</tr>
             	</thead>
             	<tbody id="request_table_body">
