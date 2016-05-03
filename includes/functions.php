@@ -79,6 +79,7 @@ function requestChords($artist, $titlu, $username) {
 }
 
 function uploadFile($username, $artist, $titlu, $categorie, $text) {
+	connectDB();
     $res = mysql_query("SELECT MAX(`id`) FROM `melodii`");
     $last_id =  mysql_fetch_array($res)[0];
     $last_id = $last_id + 1;
@@ -86,9 +87,8 @@ function uploadFile($username, $artist, $titlu, $categorie, $text) {
     $filename = "tmp_upload/" . $artist . "_" . $titlu . $last_id . ".txt";
     $comments = "comments/" . $artist . "_" . $titlu . $last_id . $last_id . "_comm.txt";
 
-	connectDB();
 	mysql_query("INSERT INTO `melodii` (`id`, `artist`, `titlu`, `cale_tmp`, `cale`, `categorie`, `uploader`, `plus`, `minus`,`comments_path`) VALUES (NULL, '$artist', '$titlu', '$filename', NULL, '$categorie', '$username', 0, 0, '$comments');");
-    fopen($filename, "w");
+    $f1 = fopen($filename, "w");
     fwrite($f1, $text);
     fclose($f1);
     return $last_id;
