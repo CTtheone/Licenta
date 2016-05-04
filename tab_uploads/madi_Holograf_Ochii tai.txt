@@ -1,31 +1,31 @@
 Strofa:
-   $[C]     $[G]   $[F]   $[G]
+$   C     G   F   G
  Nu e usor, nu e nici greu
-      $[C]     $[G]     $[F]       $[G]
+$      C     G     F       G
  Sa incerci acum sa te intorci din drum
-      $[C]   $[G]   $[F]    $[G]
+$      C   G   F    G
  Poate ca eu, cu sufletul meu
-    $[C]     $[G]    $[F]     $[G]
+$    C     G    F     G
  As avea atat de multe sa iti spun
 
 Ref:
-    $[C]     $[G]      $[E]m     $[A]m
+$    C     G      Em     Am
  Insa ochii tai se vor pierde in noapte
-       $[F]   $[C]   $[G]
+$       F   C   G
  Lasandu-ma pe mine-n urma lor
-         $[C]  $[G]    $[E]m  $[A]m
+$         C  G    Em  Am
  Stiu ca ochii tai vor fi doua soapte
-       $[F]    $[G]      $[C]
+$       F    G      C
  Si mi-e foarte dor, mi-e tare dor de ei
 
 Strofa:
-   $[C]   $[G]         $[F]              $[G]
+$   C   G         F              G
   Vreau sa simt caldura ta cand noaptea va veni
-    $[C]    $[G]     $[F]    $[G]
+$    C    G     F    G
   Doar stelele sa stie c-ai sosit
-    $[C]         $[G]         $[F]    $[G]
+$    C         G         F    G
   Parul tau va fi iar ud de roua din zori de zi
-    $[C]        $[G]     $[F]        $[G]
+$    C        G     F        G
   Si as vrea sa pot sa-ti spun bine-ai venit
 
 Ref:

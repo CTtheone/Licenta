@@ -59,87 +59,13 @@
 	</div>
 
 	<div class="col-sm-1">
-
 		<br>
 	    <input type="image" id="up" src="images/up.png" style="height:25px;width:25px;margin:7px;" onclick="transpose(1)"><br>
 		<input type="image" id="down" src="images/down.png" style="height:25px;width:25px;margin:7px;" onclick="transpose(2)">
 	</div>
 
 	<div class="display-song col-sm-8" id="text">
-		<!-- <script>
-			var tab = <?php echo json_encode($contents); ?>;
-			to_update = "<pre>";
-			lines = tab.split("\n");
-			for (x = 0; x < lines.length; x++) {
-				sublines = lines[x].split('$');
-					for (y = 0; y < sublines.length; y++) {
-						word = sublines[y];
-						if (word) {
-							if (word[0].localeCompare('[') == 0) {
-								chord_first = word.substring(1, word.indexOf(']'));
-								chord_last = word.substring(word.indexOf(']') + 1, word.length);
-								to_update += (chord_first + chord_last);
-							} else {
-								to_update += word;
-							}
-							to_update += " ";
-						}
-					}
-					to_update += "\r\n";
-			}
-			to_update += "</pre>";
-			document.write(to_update);
-		</script> -->
-        <script>
-            var prefixes = ["m", "5", "6", "7", "9", "aug", "add", "dim", "7+5", "7-5"];
-
-            var tab = <?php echo json_encode($contents); ?>;
-            to_update = "<pre>";
-            lines = tab.split("\n");
-            for (x = 0; x < lines.length; x++) {
-                sublines = lines[x].split('$');
-                if (sublines.length == 1) {
-                    to_update += sublines[0];
-                } else {
-                    to_update += sublines[0];
-                    chords = sublines[1].split(" ");
-                    for (y = 0; y < chords.length; y++) {
-                        word = chords[y];
-                        if (word == "") {
-                            to_update += " ";
-                        } else {
-                            // determine the chord type (normal, b, #)
-                            chord = "";
-                            if (word.length == 1) {
-                                // sure is a normal chord
-                                chord = word;
-                            } else {
-                                if (word[1] == "b" || word[1] == "#") {
-                                    // is b or #
-                                    chord = word.substr(0,1);
-                                } else {
-                                    // is normal
-                                    chord = word[0];
-                                }
-                            }
-                            // appling the proper modifications on the chord
-
-                            // concaternate with the rest of the chord
-                            console.log("chord" + chord);
-                            console.log("word" + word);
-                            chord += word.substr(chord.length, word.length);
-                            to_update += chord;
-                        }
-                    }
-                }
-                to_update += "\r\n";
-            }
-            to_update += "</pre>";
-            document.write(to_update);
-        </script>
 	</div>
-
-
 
 </div>
 
@@ -193,38 +119,13 @@
 		scrolldelay = setTimeout(pageScrollVeryHigh, 50);
 	}
 
+    transpose(0);
+
 	function transpose(mode) {
 		if (mode == 1)
 			count++;
-		else
-			count--;
-		// to_update = "<pre>";
-		// lines = tab.split("\n");
-		// for (x = 0; x < lines.length; x++) {
-		// 		sublines = lines[x].split('$');
-		// 		for (y = 0; y < sublines.length; y++) {
-		// 			word = sublines[y];
-		// 			if (word) {
-		// 				if (word[0].localeCompare('[') == 0) {
-		// 					chord_first = word.substring(1, word.indexOf(']'));
-		// 					chord_last = word.substring(word.indexOf(']') + 1, word.length);
-		// 					chord_first_updated = chord_first;
-		// 					if (count > 0) {
-		// 						for (k = 0; k < count; k++)
-		// 							chord_first_updated = up[chord_first_updated];
-		// 					} else if (count < 0) {
-		// 						for (k = 0; k < -count; k++)
-		// 							chord_first_updated = down[chord_first_updated];
-		// 					}
-		// 					to_update += (chord_first_updated + chord_last);
-		// 				} else {
-		// 					to_update += word;
-		// 				}
-		// 				to_update += " ";
-		// 			}
-		// 		}
-		// 		to_update += "\r\n";
-		// }
+		else if (mode == 2)
+			     count--;
         to_update = "<pre>";
         lines = tab.split("\n");
         for (x = 0; x < lines.length; x++) {

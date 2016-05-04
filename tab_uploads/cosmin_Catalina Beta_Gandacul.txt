@@ -1,21 +1,21 @@
-$[E]         $[A]       $[B]       $[E]
+$E         A       B       E
 E atata lumina, de unde vine..
-$[C#]m                          $[A]
+$C#m                          A
 Te-ntrebi, caci doar ea e cu tine
-$[B]                 $[E]
+$B                 E
 Iar luna s-a pitit dupa un nor
 E atata cadura, de unde vine...
 Caci esti doar in tricou
 Iar vantul bate nebun
 
 Refren:
-$[E]                            $[A]
+$E                            A
 Ia-o de mana, citeste-i in stele
-  $[B]                     $[E]
+$  B                     E
 Minte-o ca e cea mai frumoasa
-                     $[A]           $[B]
+$                     A           B
 Cheam-o ai aproape langa pieptul tau
-              $[E]
+$              E
 Sa simta si ea galopul inmii tale
 Saruta-i gandacul de pe deget
 Scoate-i din par firul de iarb
@@ -28,24 +28,24 @@ Si cand ea se ridica, auzi un cantec
 Si te infiori, caci este cantecul ei
 
 
-$[F]         $[Bb]       $[C]       $[F]
+$F         Bb       C       F
 E atata lumina, de unde vine..
-$[D]m                          $[Bb]
+$Dm                          Bb
 Te-ntrebi, caci doar ea e cu tine
-$[C]                 $[F]
+$C                 F
 Iar luna s-a pitit dupa un nor
 E atata cadura, de unde vine...
 Caci esti doar in tricou
 Iar vantul bate nebun
 
 Refren:
-$[F]                            $[Bb]
+$F                            Bb
 Ia-o de mana, citeste-i in stele
-  $[C]                     $[F]
+$  C                     F
 Minte-o ca e cea mai frumoasa
-                     $[Bb]           $[C]
+$                     Bb           C
 Cheam-o ai aproape langa pieptul tau
-              $[F]
+$              F
 Sa simta si ea galopul inmii tale
 Saruta-i gandacul de pe deget
 Scoate-i din par firul de iarb

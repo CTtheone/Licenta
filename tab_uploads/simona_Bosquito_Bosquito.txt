@@ -1,52 +1,52 @@
 Intro:
 
-$[G] $[A]m $[B]7 $[E]m
-$[C] $[B]7 $[E]m
+$G Am B7 Em
+$C B7 Em
 
-$[E]m                    $[D]            $[E]m
+$Em                    D            Em
 Când eram băiat acasa tare bine mai era
-                      $[D]       $[E]m
+$                      D       Em
 Aveam o gagică grasă care mă iubea
-$[A]m           $[E]m              $[A]m           $[E]m
+$Am           Em              Am           Em
 Dar când am plecat în lume ursitoarea m-a minţit
-$[A]m              $[E]m      $[A]m      $[C]    $[B]7
+$Am              Em      Am      C    B7
 C-o s-ajung un barosan bogat şi fericit
 
 
-       $[E]m    $[B]7         $[E]m
+$       Em    B7         Em
 Însă bănuţul nu s-a arătat
-    $[G]        $[D]             $[G]
+$    G        D             G
 şi fericirea iute s-a stricat
-        $[G]            $[A]m     $[B]7  $[E]m
+$        G            Am     B7  Em
 Aşa că beau, beau, golesc paharele
-       $[C]       $[B]7       $[E]m
+$       C       B7       Em
 Cu pretenarii şi cu fetele
 
-$[E]m                    $[D]            $[E]m
+$Em                    D            Em
 Ce-mi plăcea s-o facem lată, asta-mi era boala
-                      $[D]       $[E]m
+$                      D       Em
 Unde n-ajungeam vreodată, asta era şcoala
-$[A]m           $[E]m              $[A]m           $[E]m
+$Am           Em              Am           Em
 N-am nici bani, n-am nici maşină si de datorii sunt full
-$[A]m              $[E]m      $[A]m      $[C]    $[B]7
+$Am              Em      Am      C    B7
 Am o gaşcă şi-o chitară şi-asta mi-e destul
 
 
-       $[E]m    $[B]7         $[E]m
+$       Em    B7         Em
 Însă banuţul nu s-a arătat
-    $[G]        $[D]             $[G]
+$    G        D             G
 şi fericirea iute s-a stricat
-        $[G]            $[A]m     $[B]7  $[E]m
+$        G            Am     B7  Em
 Aşa că beau, beau, golesc paharele
-       $[C]       $[B]7       $[E]m
+$       C       B7       Em
 Cu pretenarii şi cu fetele
 
 
-       $[E]m    $[B]7         $[E]m
+$       Em    B7         Em
 Însă banuţul nu s-a arătat
-    $[G]        $[D]             $[G]
+$    G        D             G
 şi fericirea iute s-a stricat
-        $[G]            $[A]m     $[B]7  $[E]m
+$        G            Am     B7  Em
 Aşa că beau, beau, şi-mi bag picioarele
-       $[C]       $[B]7       $[E]m
+$       C       B7       Em
 În tot ce ţine de tranziţie
