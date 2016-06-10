@@ -46,7 +46,7 @@
 
 			<div id="demo" class="collapse" style="margin-top:5px">
 				Pentru ca tabulatura să poată fi transpusă pe site, este necesară formatarea acordurilor conform exemplului:<br><br>
-				$[C] &nbsp; $[F#] &nbsp; $[G]m &nbsp; $[B]5 &nbsp; $[Ab]7 <br>
+				$C &nbsp; F# &nbsp; G &nbsp; B &nbsp; Ab <br>
 			</div>
 		</div>
 	</div>
